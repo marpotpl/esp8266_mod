@@ -1,5 +1,5 @@
 {
-    "name": "pxt-esp8266_thingspeak",
+    "name": "pxt-esp8266_MP",
     "version": "0.0.3",
     "description": "MakeCode extension for ESP8266 Wifi module and ThingSpeak IoT",
     "dependencies": {
