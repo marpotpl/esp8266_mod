@@ -108,7 +108,7 @@ namespace ESP8266ThingSpeak_MP {
     /**
     * Check if ESP8266 successfully uploaded data to ThingSpeak
     */
-    //% block="Last data upload successful ?"
+    //% block="Last data upload successful(MP) ?"
     export function isLastUploadSuccessful() {
         return last_upload_successful
     }
