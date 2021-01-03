@@ -1,7 +1,7 @@
 /**
  * MakeCode extension for ESP8266 Wifi modules and ThinkSpeak website https://thingspeak.com/
  */
-//% color=#009b5b icon="\uf1eb" block="ESP8266_MP"
+//% color=#009b5b icon="\uf1eb" block="ESP8266_MP(CUR)"
 namespace ESP8266ThingSpeak {
 
     let wifi_connected: boolean = false
@@ -50,9 +50,9 @@ namespace ESP8266ThingSpeak {
             baudrate
         )
         
-        sendAT("AT+CWMODE=1") // set to STA mode
+        sendAT("AT+CWMODE_CUR=1") // set to STA mode
         
-        sendAT("AT+CWJAP=\"" + ssid + "\",\"" + pw + "\"", 0) // connect to Wifi router
+        sendAT("AT+CWJAP+CUR=\"" + ssid + "\",\"" + pw + "\"", 0) // connect to Wifi router
         wifi_connected = waitResponse()
         basic.pause(100)
     }
@@ -66,7 +66,7 @@ namespace ESP8266ThingSpeak {
     export function connectThingSpeak(ip: string, write_api_key: string, n1: number, n2: number, n3: number, n4: number, n5: number, n6: number, n7: number, n8: number) {
         if (wifi_connected && write_api_key != "") {
             thingspeak_connected = false
-            sendAT("AT+CIPSTART=\"TCP\",\"" + ip + "\",80", 0) // connect to website server
+            sendAT("AT+CIPSTA_CUR=\"TCP\",\"" + ip + "\",80", 0) // connect to website server
             thingspeak_connected = waitResponse()
             basic.pause(100)
             if (thingspeak_connected) {
