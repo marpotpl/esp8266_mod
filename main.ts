@@ -2,7 +2,7 @@
  * MakeCode extension for ESP8266 Wifi modules and ThinkSpeak website https://thingspeak.com/
  */
 //% color=#009b5b icon="\uf1eb" block="ESP8266_MP(CUR)"
-namespace ESP8266ThingSpeak {
+namespace ESP8266ThingSpeak_MP {
 
     let wifi_connected: boolean = false
     let thingspeak_connected: boolean = false
@@ -28,7 +28,7 @@ namespace ESP8266ThingSpeak {
             } else if (serial_str.includes("ERROR") || serial_str.includes("SEND FAIL")) {
                 break
             }
-            if (input.runningTime() - time > 30000) break
+            if (input.runningTime() - time > 10000) break
         }
         return result
     }
